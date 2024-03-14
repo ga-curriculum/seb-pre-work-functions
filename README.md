@@ -1,28 +1,26 @@
 <textarea id="source">
 
-<h1 class="slide-header">Title</h1>
+<h1 class="slide-header">Functions</h1>
 
-<span id=time-estimate class="color-grey-500">20 mins</span>
+<span id=time-estimate class="color-grey-500">60 mins</span>
 
 <p id="lesson-description">
-  In this lesson you'll learn blah blah blah
+One of the best ways to create buggy code is to copy-paste a few lines of code across many files, then trying to update those lines consistently later. Luckily we have functions, or blocks of code you can run on command to perform a specific routine. Just call the function’s name and it comes running. In this lesson, we’ll learn how to wrap our reusable code into functions.
 </p>
 
 <h5 id="topics-header" class="color-grey-500">Topics</h5>
 
-Topic # 1
+Writing Functions
 
 <hr>
 
-Topic #2
+Function Inputs and Outputs
 
 <hr>
 
-Topic #3
+Scope in JavaScript
 
 <hr>
-
-<a href="https://ga-waite.s3.amazonaws.com/production/sanitized-pdfs/introduction-to-html-2.pdf" target="_blank" download="introduction_to_html_study_guide.pdf" class="ant-btn" data-trackable="true" data-track-category="study guide" data-track-section="lesson page" data-track-action="download study guide"><span role="img" class="anticon"><svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><g class="download_svg__nc-icon-wrapper"><path d="M8 12c.3 0 .5-.1.7-.3L14.4 6 13 4.6l-4 4V0H7v8.6l-4-4L1.6 6l5.7 5.7c.2.2.4.3.7.3z"></path><path data-color="color-2" d="M1 14h14v2H1z"></path></g></svg></span><span> Download Study Guide</span></a>
 
 ---
 
@@ -31,161 +29,363 @@ Topic #3
 <p>By the end of this lesson, you'll be able to:</p>
 
 <ul>
-  <li>Objective 1</li>
-  <li>Objective 2</li>
-  <li>Objective 3</li>
+  <li>Write and execute functions.</li>
+  <li>Provide input for functions using parameters and arguments.</li>
+  <li>Use return statements to store a function’s output.</li>
 </ul>
 
 ---
 
-<h1 class="slide-header">Video Content</h1>
-<!--
-  WISTIA EXAMPLE. REPLACE 11dit621rx with the id
--->
-<div class="wistia_embed wistia_async_11dit621rx wistia_embed_initialized" id="wistia-11dit621rx-1"
-  style="width: 100%; height: 50%;">
-  <div id="wistia_chrome_23" class="w-chrome notranslate" tabindex="-1">
-    <div id="wistia_grid_57_wrapper" style="display: block; width: 630px; height: 354.375px;">
-      <div id="wistia_grid_57_above" style="height: 0px; font-size: 0px; line-height: 0px;"> </div>
-      <div id="wistia_grid_57_main" style="width: 630px; left: 0px; height: 354.375px; margin-top: 0px;">
-        <div id="wistia_grid_57_center" style="width: 100%; height: 100%;">
-          <div class="w-video-wrapper w-css-reset"
-            style="height: 100%; position: absolute; top: 0px; width: 100%; opacity: 1;">
-            <video id="wistia_simple_video_135" crossorigin="anonymous"
-              poster="https://fast.wistia.com/assets/images/blank.gif" aria-label="Video" controlslist="nodownload"
-              playsinline="" preload="auto" type="video/m3u8" x-webkit-airplay="allow"
-              style="background: transparent; display: block; height: 100%; max-height: none; max-width: none; position: static; visibility: visible; width: 100%; object-fit: contain;"></video>
-          </div>
-          <div class="w-ui-container"
-            style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; opacity: 1;">
-            <div class="w-vulcan-v2 w-css-reset" id="w-vulcan-v2-56"
-              style="border-radius: 0px; box-sizing: border-box; cursor: default; direction: ltr; height: 100%; left: 0px; position: absolute; visibility: visible; top: 0px; width: 100%;">
-              <div class="w-vulcan--background w-css-reset"
-                style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;">
-                <div class="w-css-reset" data-handle="statusBar"></div>
-                <div class="w-css-reset" data-handle="backgroundFocus"><button
-                    aria-label="Play Video: A Brief History of the Web" class="w-css-reset w-vulcan-v2-button"
-                    tabindex="0" style="width: 0px; height: 0px; pointer-events: none;"></button></div>
-              </div>
-              <div aria-live="polite" class="w-vulcan--aria-live w-css-reset" aria-atomic="true"
-                style="position: absolute; left: -99999em;"></div>
-              <div class="w-vulcan-overlays-table w-css-reset"
-                style="display: table; pointer-events: none; position: absolute; width: 100%;">
-                <div class="w-vulcan-overlays--left w-css-reset"
-                  style="display: table-cell; vertical-align: top; position: relative; width: 0px;">
-                  <div class="w-css-reset" style="height: 321.375px;"></div>
-                </div>
-                <div class="w-vulcan-overlays--center w-css-reset"
-                  style="display: table-cell; vertical-align: top; position: relative; width: 100%;">
-                  <div class="w-css-reset" style="height: 321.375px;">
-                    <div class="w-css-reset" data-handle="bigPlayButton" style="pointer-events: auto;">
-                      <div class="w-bpb-wrapper w-css-reset w-css-reset-tree"
-                        style="border-radius: 0px; display: none; left: calc(50%); margin-left: -61.5234px; margin-top: -39.375px; overflow: hidden; position: absolute; top: calc(50% + 0px);">
-                        <button class="w-big-play-button w-css-reset-button-important w-vulcan-v2-button" tabindex="0"
-                          type="button" style="cursor: pointer; height: 78.75px; box-shadow: none; width: 123.047px;">
-                          <div
-                            style="background: rgb(1, 121, 145); display: block; left: 0px; height: 78.75px; mix-blend-mode: darken; position: absolute; top: 0px; width: 123.047px;">
-                          </div>
-                          <div
-                            style="background-color: rgba(1, 121, 145, 0.7); height: 78.75px; left: 0px; position: absolute; top: 0px; transition: background-color 150ms ease 0s; width: 123.047px;">
-                          </div><svg x="0px" y="0px" viewBox="0 0 125 80" enable-background="new 0 0 125 80"
-                            aria-hidden="true" alt=""
-                            style="fill: rgb(255, 255, 255); height: 78.75px; left: 0px; stroke-width: 0px; top: 0px; width: 100%; position: absolute;">
-                            <rect fill-rule="evenodd" clip-rule="evenodd" fill="none" width="125" height="80"></rect>
-                            <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="53,22 53,58 79,40">
-                            </polygon>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="w-css-reset" data-handle="clickForSoundButton" style="pointer-events: auto;">
-  <div class="w-css-reset w-css-reset-tree" data-handle="click-for-sound-backdrop"
-    style="display: none; height: 100%; left: 0px; pointer-events: auto; position: absolute; top: 0px; width: 100%;">
-    <button aria-label="Click for sound" class="w-vulcan-v2-button click-for-sound-btn"
-      style="background: rgba(0, 0, 0, 0.8); border: 2px solid transparent; border-radius: 60px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none; pointer-events: auto; position: absolute; right: 20.1484px; top: 20.1484px; max-width: 589.703px;">
-      <div
-        style="display: flex; align-items: center; justify-content: flex-end; white-space: nowrap; overflow: hidden; max-width: 0px; transition: max-width 200ms ease 0s;">
-        <span
-          style="color: rgb(255, 255, 255); font-family: WistiaPlayerInter, Helvetica, sans-serif; font-size: 15px; font-weight: 500; padding-left: 1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 630px;">Click
-          for sound</span>
-      </div><svg viewBox="0 0 237 237" width="51.6796875" height="51.6796875"></svg>
-    </button>
-</div>
-</div>
-</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- YOUTUBE -->
-<!-- VIMEO -->
-<details>
-  <summary>Transcript</summary>
-  
-  <p class="transcript-text">
-    Lorem ipsum etc etc
-  </p>
-</details>
+<h1 class="slide-header">Not Like This...</h1>
+
+Imagine you’re creating a battle game where a player can take damage from lots of sources — other players, monsters, machines, and more. To program the game, you’d have to write the exact same lines for every situation in which the player could get damaged:
+
+```javascript
+if (enemyAttack === true) {
+   player.health -= 1;
+   player.damageTaken += 1;
+   player.points -= 100;
+} else if (monsterAttack === true) {
+   player.health -= 1;
+   player.damageTaken += 1;
+   player.points -= 100;
+} else if (machineAttack === true) {
+   player.health -= 1;
+   player.damageTaken += 1;
+   player.points -= 100;
+}
+```
+...and so on.
+
+If you decided that players should only lose 50 points when they take damage, you’d have to track down EVERY appearance of that line of code in the program, which might be in dozens or hundreds of places. This is a recipe for buggy code and long, hard-to-read programs. Time for functions to step in.
 
 ---
 
+<h1 class="slide-header">...Like This</h1>
 
-<h1 class="slide-header">Code Challenge</h1>
+We can bundle up those lines of code into a **function**:
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Code Challenge Test" src="https://codepen.io/Ryan-Brodsky/embed/VwNwXqq?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-    See the Pen <a href="https://codepen.io/Ryan-Brodsky/pen/VwNwXqq">
-    Code Challenge Test</a> by Ryan Brodsky (<a href="https://codepen.io/Ryan-Brodsky">@Ryan-Brodsky</a>)
-    on <a href="https://codepen.io">CodePen</a>.
-  </iframe>
+```javascript
+function takeDamage() {
+    player.health -= 1;
+    player.damageTaken += 1;
+    player.points -= 100;
+}
+```
+
+Later in our game program, we can use that function by invoking it with its name, `takeDamage()`. If we need to add more logic to this procedure, all we have to do is change this one block of code.
 
 ---
 
-<h1 class="slide-header">Multiple Choice Question</h1>
+<h1 class="slide-header">The Need for DRY Code</h1>
+
+Functions not only modularize our work, they also allow us to save time and effort when writing programs.
+
+This is an important programming practice known as “**D**on’t **R**epeat **Y**ourself,” or DRY coding. When our code is DRY:
+* It’s easier to maintain.
+* It performs better.
+* It’s more readable.
+* It’s less buggy.
+
+That’s basically everything you want your code to be. Sounds great, right?
+
+![](https://ga-instruction.s3.amazonaws.com/assets/intro-tech/js-unit-assets/dry.png)
+
+---
+
+<h1 class="slide-header">Defining a Function</h1>
+
+Let’s take a look at a simple function to break down its parts:
+
+![](https://ga-instruction.s3.amazonaws.com/assets/intro-tech/js-unit-assets/function.png)
+
+* First, we have the `function` keyword, which lets JavaScript know we’re declaring a function.
+* Then, we write the function’s name — in this case, `sayHello`. **A function’s name should always describe what the function does.**
+* The parentheses are there to define parameters or any input the function requires. This function has no parameters, but we still put empty `()` after the function name.
+* Then, we have the code block we want to execute surrounded by curly braces. This should seem familiar — it’s the same way we defined a code block for conditionals and loops. The idea is the same; we define what we want to happen under certain conditions (in this case, when the function is invoked).
+
+---
+
+<h1 class="slide-header">Invoking a Function</h1>
+
+Once you’ve defined the function, getting it to execute is as easy as using the function’s name with parentheses included: `sayHello()`.
+
+A common error for first-time programmers is forgetting to call the function after defining it.
+
+This JavaScript won’t actually do anything:
+```javascript
+function sayHello() {
+    console.log("Hello!");
+}
+```
+
+But this code will, as we invoked the function by adding its name. (You might also hear this referred to as “calling” the function.)
+```javascript
+function sayHello() {
+    console.log("Hello!");
+}
+
+sayHello();
+```
+
+---
+
+<h1 class="slide-header">Sing Out!</h1>
+
+Let’s practice by writing and invoking a function that logs the chorus of your favorite song.
+
+* Name the function `sing`.
+* Inside the function, use a `console.log()` with the lyrics of your choice.
+* Once you’ve defined the function, bring it into action by invoking it one time.
+
+---
+
+<h1 class="slide-header">Using Our Functions</h1>
+
+We can make our functions a lot more complicated than just logging statements.
+
+For example, if you were a coffee shop owner, you could create a function to calculate the total cost of a latte:
+
+```js
+function latteTotal() {
+  const price = 4.50;
+  const salesTaxRate = .10;
+  const totalAmount = price + (price * salesTaxRate);
+  console.log("The total is $" + totalAmount);
+}
+```
+
+But, what if you wanted to calculate the price of an Americano? Should you write another function called `americanoTotal()` that performs the same calculation with a different price? What about calculating the prices of scones or donuts? Writing all of these functions doesn’t sound like DRY code, does it? 
+
+---
+
+<h1 class="slide-header">Introducing Parameters</h1>
+
+We can give the function different information to work with using **parameters**. Instead of doing the same thing with the same information each time, we have the function perform the same tasks on any data we give it.
+
+Remember how we’ve been leaving the `()` after our function’s name empty? It’s time to throw some parameters in there. Here’s how we’d refactor the `latteTotal()` function to work for any product in our coffee shop:
+
+```javascript
+function calculateTotal(price, salesTaxRate) {
+   const totalAmount = price + (price * salesTaxRate);
+   console.log("The total is $" + totalAmount);
+}
+```
+
+A few things to note:
+* There’s nothing special about the words `price` or `salesTaxRate`. We’re using descriptive names to remember what information we’re providing our function. It’s up to you to choose parameter names that make sense for what you’re trying to do.
+* We can add multiple parameters separated by commas in the parentheses.
+
+---
+
+<h1 class="slide-header">From Parameters to Arguments</h1>
+
+When we invoke a function, we replace parameters with the data we want them to actually use. The data we provide when invoking a function is called an **argument**. 
+
+Here’s how we’d invoke a function with arguments:
+
+```javascript
+function calculateTotal(price, salesTaxRate) {
+   const totalAmount = price + (price * salesTaxRate);
+   console.log("The total is $" + totalAmount);
+}
+
+calculateTotal(4.50, .10);
+```
+
+In this example, `4.50` corresponds to `price` and `.10` corresponds to `salesTaxRate`. **The order the arguments are written is important**, because it tells JavaScript which parameters they represent.
+
+---
+
+<h1 class="slide-header">Hello, You!</h1>
+
+Now that we know about parameters, let’s make a friendly function that can greet anybody by their name. 
+
+* Define a function named `helloThere()`.
+* It should have one parameter for the `name` of the person we’re greeting.
+* It should log the message `Hello, _____!`, filling in the `name` in the blank.
+
+---
+
+<h1 class="slide-header">What Comes Out of a Function</h1>
+
+Just as crucial as what goes into a function is what comes out of it. So far, we’ve been using `console.log` to view the results of our function. But what if we don’t want to log the results immediately?
+
+The output of a function is called its **return** value, and we use the `return` keyword inside the function to define the output.
+
+Let’s refactor our `calculateTotal()` function so that the result is returned:
+
+```js
+function calculateTotal(price, salesTaxRate) {
+   return (price + (price * salesTaxRate));
+}
+```
+
+Now, we can use the result of the function. We could create a new variable called `total` and use it to store the result of `calculateTotal()` so that we can refer to it elsewhere.
+
+```javascript
+const total = calculateTotal(4.5, .10);
+```
+
+---
+
+<h1 class="slide-header">Return vs. Console.log</h1>
+
+At this point, you might be wondering about the actual difference between `return` and `console.log`. They both give you output, right?
+
+Think of a function like a vending machine. You feed in your money and choice of selection, and you expect a product to come out of it. A `console.log` is the equivalent of a message on the machine that tells you, “I got your request for M&M’s.” It’s a helpful message, but you sure can’t eat it! The machine has to `return` something to you — in this case, the bag of M&M’s — which is the output of whatever you told it to do.
+
+Although most of our examples up to this point have used `console.log`, in a real application, those statements are mostly used to debug what’s going wrong. A mature, finished browser application should have no `console.log` statements at all, because (hopefully) all of the bugs are fixed.
+
+![](https://ga-instruction.s3.amazonaws.com/assets/tech/computer-science/intro-js/vending-machine.png)
+
+---
+
+<h1 class="slide-header">Your Programming Powers Have Multiplied</h1>
+
+Write a function named `multiply()` that accepts two parameters and returns the result of multiplying the given numbers.
+
+---
+
+<h1 class="slide-header">Scope</h1>
+
+Now that we’re more familiar with the concept of code blocks, we can discuss the idea of **scope**. In JavaScript, where you declare a variable or function affects where it can be used by the program. Scope helps us specify if and how a program can use specific variables and functions.
+
+The curly braces surrounding a code block — in a function or conditional statement — define a new scope, which will limit how you can access variables **outside** of the scope.
+* **Globally scoped** variables aren't declared inside of any code block, and are available anywhere in the program. 
+* **Locally scoped** variables are only available inside of the code block they're declared within. A `let i = 0` declaration inside of a for loop is a classic example– you won't be able to access that particular `i` variable outside of the for loop.
+
+Let’s look more closely at global and local scope.
+
+---
+
+<h1 class="slide-header">Global Scope</h1>
+
+A **globally scoped variable** is one to which the entire program has access. Most of the variables we’ve defined so far have been global in scope. They’ve been defined outside of a function or specific code block, which means all scripts and functions on a webpage can access them.
+
+In the code below, the `brother` variable is a **global variable** because it’s defined on its own, outside of a specific function:
+
+```js
+const brother = "Phillip";
+
+function sayHello() {
+   console.log("Hello " + brother);
+}
+
+sayHello();   // brother can be accessed here
+
+console.log(brother);   // and brother can be accessed here
+```
+
+---
+
+<h1 class="slide-header">Local Scope</h1>
+
+Conversely, a **locally scoped variable** is declared inside of a code block and can only be accessed by other members of the same code block. It cannot be referenced outside of that code block, which means it cannot be called or used outside of the braces in which it’s contained.
+
+In the code below, we can call `sayHello()` with no trouble, but the `console.log` will give you `undefined`, because the variable it’s trying to access is local to a function:
+
+```js
+function sayHello() {
+   const brother = "Phillip";
+   console.log("Hello " + brother);
+};
+
+sayHello();   // brother would be logged here...
+
+console.log(brother);   // but it can’t be accessed on its own here.
+```
+
+---
+
+<h1 class="slide-header">Knowledge Check</h1>
+
+What will we get from the `console.log` below?
+
+```js
+if (user === "me") {
+   const permitted = true;
+}
+
+console.log(permitted);
+```
 
 <fieldset>
-  <legend>Please select one of the following</legend>
-  <input type="radio" name="action" id="track" value="track" correct="true"/><label for="track">Correct Answer</label><br />
-  <input type="radio" name="action" id="event" value="event"  /><label for="event">Incorrect</label><br />
-  <input type="radio" name="action" id="message" value="message" /><label for="message">Incorrect</label><br />
+    <legend>Please select one of the following</legend>
+<input type='radio' name='answers' id='answer1' value='answer1' correct='true'/><label for='answer1'>true</label><br />
+<input type='radio' name='answers' id='answer2' value='answer2' /><label for='answer2'>me</label><br />
+<input type='radio' name='answers' id='answer3' value='answer3' /><label for='answer3'>undefined</label><br />
 </fieldset>
-<button class="ant-btn ant-btn-primary multiple-choice-radio-submit">Submit Answer</button>
-
-<fieldset>
-  <legend>Please select all that apply</legend>
-  <input type="checkbox" id="uniqueAnswer" name="unique" correct="true"/><label for="uniqueAnswer">Correct Answer</label><br />
-  <input type="checkbox" id="uniqueAnswer2" name="unique2" /><label for="uniqueAnswer2">Incorrect Answer</label><br />
-  <input type="checkbox" id="uniqueAnswer3" name="unique3" correct="true"/><label for="uniqueAnswer3">Correct Answer</label><br />
-</fieldset>
-
-<button class="ant-btn ant-btn-primary multiple-choice-checkbox-submit">Submit Answer</button>
+<button class='ant-btn ant-btn-primary multiple-choice-radio-submit'>Submit Answer</button>
 
 ---
 
-<h1 class="slide-header">Cards Slide</h1>
+<h1 class="slide-header">The Arrow Function</h1>
+
+The oldest way to write a function is how we’ve already been doing it: by using the `function` keyword. 
+
+In newer versions of JavaScript, there’s another syntax for defining functions called **arrow functions**.  Here’s the same function, written both with the `function` keyword and as an arrow function:
+
+```js
+// Older way:
+function calculateTotal(price, salesTaxRate) {
+   return (price + (price * salesTaxRate));
+}
+calculateTotal(4.5, .10);
+
+// Newer way:
+const calculateTotal = (price, salesTaxRate) => {
+   return (price + (price * salesTaxRate));
+}
+calculateTotal(4.5, .10);
+```
+
+Things to note:
+* Only the first line of the function changes.
+* Instead of using `function` to define the function, we use `const`.
+* Then, we separate the parameters using a `=`, followed by the “arrow” symbol, `=>`.
+* There are some advanced differences between regular functions and arrow functions, but we don't need to get into those here. If you're curious, check out <a href="https://www.geeksforgeeks.org/difference-between-regular-functions-and-arrow-functions/" target="_blank" rel="noreferrer noopener">this article</a> that explains them.
+
+---
+
+<h1 class="slide-header">Knowledge Check</h1>
+
+How could we rewrite the following function using the arrow function syntax?
+
+```js
+function embraceChange() {
+  console.log("Now I'm an arrow function.");
+}
+embraceChange();
+```
 
 <details>
-  <summary>Vocabulary Term</summary>
-  
-  <p class="transcript-text">
-    Definition when "flipped" by the student
-  </p>
+  <summary>Reveal Answer</summary>
+  Here’s how that function should look now. Because this function has no parameters, we’ll leave the `()` blank (however, we still need to include them).
+
+  ```js
+  const embraceChange = () => {
+     console.log("Now I'm an arrow function.");
+  }
+  embraceChange();
+  ```
 </details>
 
-<details>
-  <summary>Vocabulary Term</summary>
-  
-  <p class="transcript-text">
-    Definition when "flipped" by the student
-  </p>
-</details>
+---
+
+<h1 class="slide-header">Functions and Arrays</h1>
+
+The last few concepts we’ve learned are especially powerful in combination with each other. Let’s try writing a function named `printArray()` with the following guidelines:
+
+* `printArray()` accepts an array as a parameter, which you could name `arr`.
+* `printArray()` uses a `for` loop to iterate over each element in order to log each element to the console.
 
 ---
 
 <h1 class="slide-header">Conclusion</h1>
+
+Functions are the key to creating re-usable, readable programs. Instead of a pile of lines of disorganized code, you end up with clearly named blocks that add up to bigger things.
+
+You're now ready to start practicing JS with code challenges on sites like [Codewars](https://www.codewars.com/) or [LeetCode](https://leetcode.com/), which typically take the form of "Write a function that does _________."
 
 </textarea>
