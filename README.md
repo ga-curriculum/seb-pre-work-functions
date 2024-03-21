@@ -138,6 +138,12 @@ Let’s practice by writing and invoking a function that logs the chorus of your
 * Inside the function, use a `console.log()` with the lyrics of your choice.
 * Once you’ve defined the function, bring it into action by invoking it one time.
 
+<iframe height="300" style="width: 100%;" scrolling="no" title="Sing Out" src="https://codepen.io/GAmarketing/embed/bGJBmzJ?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+   See the Pen <a href="https://codepen.io/GAmarketing/pen/bGJBmzJ">
+   Sing Out</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
+   on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
 ---
 
 <h1 class="slide-header">Using Our Functions</h1>
@@ -205,6 +211,12 @@ Now that we know about parameters, let’s make a friendly function that can gre
 * It should have one parameter for the `name` of the person we’re greeting.
 * It should log the message `Hello, _____!`, filling in the `name` in the blank.
 
+<iframe height="300" style="width: 100%;" scrolling="no" title="Hello, There!" src="https://codepen.io/GAmarketing/embed/jORVeJN?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+   See the Pen <a href="https://codepen.io/GAmarketing/pen/jORVeJN">
+   Hello, There!</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
+   on <a href="https://codepen.io">CodePen</a>.
+ </iframe>
+
 ---
 
 <h1 class="slide-header">What Comes Out of a Function</h1>
@@ -244,6 +256,12 @@ Although most of our examples up to this point have used `console.log`, in a rea
 <h1 class="slide-header">Your Programming Powers Have Multiplied</h1>
 
 Write a function named `multiply()` that accepts two parameters and returns the result of multiplying the given numbers.
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="Your Powers Have Multiplied" src="https://codepen.io/GAmarketing/embed/poBNxYv?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+   See the Pen <a href="https://codepen.io/GAmarketing/pen/poBNxYv">
+   Your Powers Have Multiplied</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
+   on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ---
 
@@ -380,6 +398,11 @@ The last few concepts we’ve learned are especially powerful in combination wit
 * `printArray()` accepts an array as a parameter, which you could name `arr`.
 * `printArray()` uses a `for` loop to iterate over each element in order to log each element to the console.
 
+<iframe height="300" style="width: 100%;" scrolling="no" title="With These Powers Combined" src="https://codepen.io/GAmarketing/embed/MWRbPxa?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+   See the Pen <a href="https://codepen.io/GAmarketing/pen/MWRbPxa">
+   With These Powers Combined</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
+   on <a href="https://codepen.io">CodePen</a>.
+ </iframe>
 ---
 
 <h1 class="slide-header">Conclusion</h1>
