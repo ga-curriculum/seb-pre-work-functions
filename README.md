@@ -299,9 +299,9 @@ console.log(brother);   // and brother can be accessed here
 
 <h1 class="slide-header">Local Scope</h1>
 
-Conversely, a **locally scoped variable** is declared inside of a code block and can only be accessed by other members of the same code block. It cannot be referenced outside of that code block, which means it cannot be called or used outside of the braces in which it’s contained.
+Conversely, a **locally scoped variable** is declared inside of a code block and can only be accessed by other members of the same code block. It cannot be referenced outside of that code block, which means it cannot be called or used outside of the braces in which it's contained.
 
-In the code below, we can call `sayHello()` with no trouble, but the `console.log` will give you `undefined`, because the variable it’s trying to access is local to a function:
+In the code below, we can call `sayHello()` with no trouble, and the console log inside it will run. However, when we try to access the `brother` variable in the `console.log()` we will get an error indicating that `brother` is not defined. This is because the `brother` variable is local to the `sayHello()` function:
 
 ```js
 function sayHello() {
@@ -321,6 +321,8 @@ console.log(brother);   // but it can’t be accessed on its own here.
 What will we get from the `console.log` below?
 
 ```js
+const user = "me"
+
 if (user === "me") {
    const permitted = true;
 }
@@ -329,11 +331,15 @@ console.log(permitted);
 ```
 
 <fieldset>
-    <legend>Please select one of the following</legend>
-<input type='radio' name='answers' id='answer1' value='answer1' correct='true'/><label for='answer1'>true</label><br />
-<input type='radio' name='answers' id='answer2' value='answer2' /><label for='answer2'>me</label><br />
-<input type='radio' name='answers' id='answer3' value='answer3' /><label for='answer3'>undefined</label><br />
+  <legend>Please select one of the following</legend>
+  <input type='radio' name='answers' id='answer1' value='answer1' /><label for='answer1'>true</label><br />
+  <input type='radio' name='answers' id='answer2' value='answer2' /><label for='answer2'>me</label><br />
+  <input type='radio' name='answers' id='answer3' value='answer3' correct='true'/>
+  <label for='answer3'>
+    This console log will not run because the variable <pre>permitted<pre> used inside it has not been defined.
+  </label>
 </fieldset>
+<br />
 <button class='ant-btn ant-btn-primary multiple-choice-radio-submit'>Submit Answer</button>
 
 ---
