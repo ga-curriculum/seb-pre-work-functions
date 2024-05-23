@@ -334,7 +334,7 @@ console.log(permitted);
   <legend>Please select one of the following</legend>
   <input type='radio' name='answers' id='answer1' value='answer1' /><label for='answer1'>true</label><br />
   <input type='radio' name='answers' id='answer2' value='answer2' /><label for='answer2'>me</label><br />
-  <input type='radio' name='answers' id='answer3' value='answer3' correct='true'/><label for='answer3'>This console log will not run because the variable <code>permitted</code> accessed inside it has not been defined.</label>
+  <input type='radio' name='answers' id='answer3' value='answer3' correct='true'/><label for='answer3'>This console log will not run because the variable <code>permitted</code> has not been defined in its scope.</label>
 </fieldset>
 <br />
 <button class='ant-btn ant-btn-primary multiple-choice-radio-submit'>Submit Answer</button>
