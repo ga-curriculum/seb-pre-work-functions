@@ -431,9 +431,9 @@ There are more advanced differences between traditional and arrow functions, but
 
 ---
 
-<h1 class="slide-header">Knowledge Check</h1>
+<h1 class="slide-header">Quick Review</h1>
 
-How could we rewrite the following function using the arrow function syntax?
+Let's look at another example. This function declaration:
 
 ```js
 function embraceChange() {
@@ -442,18 +442,14 @@ function embraceChange() {
 embraceChange();
 ```
 
-<details>
-  <summary>Click here to see the answer</summary>
+can be rewritten as this arrow function: 
 
-<code>const embraceChange = () => {</code>
-<code>  console.log('I can change!');</code>
-<code>};</code>
-
-
-<code>embraceChange();</code>
-
-
-</details>
+```js
+const embraceChange = () => {
+  console.log('I can change!');
+};
+embraceChange();
+```
 
 ---
 
