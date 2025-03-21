@@ -5,7 +5,10 @@
 <span id=time-estimate class="color-grey-500">60 mins</span>
 
 <p id="lesson-description">
-One of the best ways to create buggy code is to copy-paste a few lines of code across many files, then trying to update those lines consistently later. Luckily we have functions, or blocks of code you can run on command to perform a specific routine. Just call the function’s name and it comes running. In this lesson, we’ll learn how to wrap our reusable code into functions.
+One common mistake when writing code is copying and pasting the same lines of code in different places. This makes your code hard to manage and easy to break if you need to make changes later.
+That’s where <strong>functions</strong> come in. A function is a <strong>block of strong</strong> that performs a specific task. Instead of repeating strong, you can write it once inside a function and then <strong>use (or "call") the function whenever you need it</strong>.
+In this lesson, you’ll learn how to write functions and use them to make your strong more <strong>organized, efficient, and easy to reuse</strong>.
+
 </p>
 
 <h5 id="topics-header" class="color-grey-500">Topics</h5>
@@ -36,107 +39,122 @@ Scope in JavaScript
 
 ---
 
-<h1 class="slide-header">Not Like This...</h1>
+<h1 class="slide-header">You Could Write Logic Like This...</h1>
 
-Imagine you’re creating a battle game where a player can take damage from lots of sources — other players, monsters, machines, and more. To program the game, you’d have to write the exact same lines for every situation in which the player could get damaged:
+Imagine you’re building a video game where a character collects different items — food, coins, and tools. Each time an item is collected, you need to update their points and add the item to their inventory.
+
+Without functions, you might end up writing repetitive code like this:
 
 ```javascript
-if (enemyAttack === true) {
-   player.health -= 1;
-   player.damageTaken += 1;
-   player.points -= 100;
-} else if (monsterAttack === true) {
-   player.health -= 1;
-   player.damageTaken += 1;
-   player.points -= 100;
-} else if (machineAttack === true) {
-   player.health -= 1;
-   player.damageTaken += 1;
-   player.points -= 100;
+if (collectedFood === true) {
+  player.points += 20;
+  player.inventory.push('food');
+} else if (collectedCoin === true) {
+  player.points += 10;
+  player.inventory.push('coin');
+} else if (collectedTool === true) {
+  player.points += 50;
+  player.inventory.push('tool');
 }
 ```
+
 ...and so on.
 
-If you decided that players should only lose 50 points when they take damage, you’d have to track down EVERY appearance of that line of code in the program, which might be in dozens or hundreds of places. This is a recipe for buggy code and long, hard-to-read programs. Time for functions to step in.
+If you decide to change how points or inventory handling works, you'd have to update the same logic in multiple places. This makes your code **harder to manage and more prone to mistakes**.
+
+Using functions helps avoid this problem.
 
 ---
 
-<h1 class="slide-header">...Like This</h1>
+<h1 class="slide-header">...But This is Better</h1>
 
-We can bundle up those lines of code into a **function**:
+Instead of repeating code, we can **wrap the logic in a function**:
 
 ```javascript
-function takeDamage() {
-    player.health -= 1;
-    player.damageTaken += 1;
-    player.points -= 100;
+function collectItem(itemName, pointsValue) {
+  player.points += pointsValue;
+  player.inventory.push(itemName);
 }
 ```
 
-Later in our game program, we can use that function by invoking it with its name, `takeDamage()`. If we need to add more logic to this procedure, all we have to do is change this one block of code.
+Now, whenever the player collects an item, just call the function and pass in the item name and points value:
+
+```javascript
+collectItem('food', 20);
+collectItem('coin', 10);
+collectItem('tool', 50);
+```
+
+This way, if you need to change the points or how items are tracked, you only have to update the function **once**. It keeps your code **clean, flexible, and easy to update**.
 
 ---
 
 <h1 class="slide-header">The Need for DRY Code</h1>
 
-Functions not only modularize our work, they also allow us to save time and effort when writing programs.
+Functions help us organize our code and avoid repeating ourselves. This follows an important programming principle called **DRY**: **D**on’t **R**epeat **Y**ourself.
 
-This is an important programming practice known as “**D**on’t **R**epeat **Y**ourself,” or DRY coding. When our code is DRY:
-* It’s easier to maintain.
-* It performs better.
-* It’s more readable.
-* It’s less buggy.
+When you follow DRY principles:
 
-That’s basically everything you want your code to be. Sounds great, right?
+- Your code is **easier to maintain**.
+- It’s **more efficient**.
+- It’s **clearer and easier to read**.
+- It’s **less prone to errors**.
 
-![](https://ga-instruction.s3.amazonaws.com/assets/intro-tech/js-unit-assets/dry.png)
+In short, DRY code is clean, reliable, and easier to work with.
+
+<img src="./assets/dry.png" alt="Do Not Repeat Yourself" style="width:600px;"/>
 
 ---
 
 <h1 class="slide-header">Defining a Function</h1>
 
-Let’s take a look at a simple function to break down its parts:
+Let’s break down the parts of a simple function:
 
-![](https://ga-instruction.s3.amazonaws.com/assets/intro-tech/js-unit-assets/function.png)
+<img src="./assets/function.png" alt="Function Structure" style="width:500px;"/>
 
-* First, we have the `function` keyword, which lets JavaScript know we’re declaring a function.
-* Then, we write the function’s name — in this case, `sayHello`. **A function’s name should always describe what the function does.**
-* The parentheses are there to define parameters or any input the function requires. This function has no parameters, but we still put empty `()` after the function name.
-* Then, we have the code block we want to execute surrounded by curly braces. This should seem familiar — it’s the same way we defined a code block for conditionals and loops. The idea is the same; we define what we want to happen under certain conditions (in this case, when the function is invoked).
+- **`function` keyword:** Tells JavaScript you are declaring a function.
+- **Function name:** In this example, it’s `sayHello`. A function’s name should describe what it does.
+- **Parentheses `()`**: This is where you define inputs (called parameters). Even if there are no inputs, you still use empty parentheses.
+- **Code block `{ }`**: Contains the instructions you want to run when the function is called. This works just like code blocks in conditionals and loops — it tells the program what to do when the function is used.
 
 ---
 
 <h1 class="slide-header">Invoking a Function</h1>
 
-Once you’ve defined the function, getting it to execute is as easy as using the function’s name with parentheses included: `sayHello()`.
+Once you’ve defined a function, making it run is as simple as using the function’s name with parentheses: `sayHello()`. This tells JavaScript to execute the code inside the function.
 
-A common error for first-time programmers is forgetting to call the function after defining it.
+A common mistake for beginners is defining a function but forgetting to call it. For example, this code won’t do anything because the function is never invoked:
 
-This JavaScript won’t actually do anything:
 ```javascript
 function sayHello() {
-    console.log("Hello!");
+  console.log('Hello!');
 }
 ```
 
-But this code will, as we invoked the function by adding its name. (You might also hear this referred to as “calling” the function.)
+But when we add the function call, it runs and prints the message to the console:
+
 ```javascript
 function sayHello() {
-    console.log("Hello!");
+  console.log('Hello!');
 }
 
 sayHello();
 ```
 
+You might also hear this referred to as “calling” the function.
+
 ---
 
 <h1 class="slide-header">Sing Out!</h1>
 
-Let’s practice by writing and invoking a function that logs the chorus of your favorite song.
+Let’s practice writing and calling a function that logs the chorus of your favorite song.
 
-* Name the function `sing`.
-* Inside the function, use a `console.log()` with the lyrics of your choice.
-* Once you’ve defined the function, bring it into action by invoking it one time.
+**1. Create a new function in the CodePen below.**  
+**2. Name the function `sing`.**  
+**3. Inside the function, use `console.log()` to print the lyrics of your choice.**  
+**4. After defining the function, _invoke it_ by calling its name with parentheses.**
+
+This exercise will help you get comfortable with writing and using functions!
 
 <iframe sandbox="allow-scripts allow-top-navigation allow-top-navigation-by-user-activation allow-forms allow-popups allow-same-origin"  height="400" style="width: 100%;" scrolling="no" title="Sing Out" src="https://codepen.io/GAmarketing/embed/bGJBmzJ?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
    See the Pen <a href="https://codepen.io/GAmarketing/pen/bGJBmzJ">
@@ -148,68 +166,83 @@ Let’s practice by writing and invoking a function that logs the chorus of your
 
 <h1 class="slide-header">Using Our Functions</h1>
 
-We can make our functions a lot more complicated than just logging statements.
+Functions can do much more than just log simple statements — they can help us perform calculations and handle repetitive tasks.
 
-For example, if you were a coffee shop owner, you could create a function to calculate the total cost of a latte:
+For example, if you owned a tea shop, you could create a function to calculate the total cost of a cup of green tea:
 
 ```js
-function latteTotal() {
-  const price = 4.50;
-  const salesTaxRate = .10;
-  const totalAmount = price + (price * salesTaxRate);
-  console.log("The total is $" + totalAmount);
+function greenTeaTotal() {
+  const price = 3.5;
+  const salesTaxRate = 0.1;
+  const totalAmount = price + price * salesTaxRate;
+  console.log('The total is $' + totalAmount);
 }
 ```
 
-But, what if you wanted to calculate the price of an Americano? Should you write another function called `americanoTotal()` that performs the same calculation with a different price? What about calculating the prices of scones or donuts? Writing all of these functions doesn’t sound like DRY code, does it? 
+But what if you wanted to calculate the price of an herbal tea or a chai latte? Would you write separate functions like `herbalTeaTotal()` or `chaiLatteTotal()` that repeat the same logic with different prices? That wouldn’t follow DRY principles.
+
+Instead, there’s a better way — and it involves using function parameters to make your code more flexible.
 
 ---
 
 <h1 class="slide-header">Introducing Parameters</h1>
 
-We can give the function different information to work with using **parameters**. Instead of doing the same thing with the same information each time, we have the function perform the same tasks on any data we give it.
+We can make our functions more flexible by using **parameters**. Parameters let a function perform the same tasks on different pieces of data, rather than always working with the same values.
 
-Remember how we’ve been leaving the `()` after our function’s name empty? It’s time to throw some parameters in there. Here’s how we’d refactor the `latteTotal()` function to work for any product in our coffee shop:
+Up until now, we’ve been leaving the `()` after our function names empty. Now, it’s time to add parameters so we can reuse one function for different items in our tea shop.
+
+Here’s how we can refactor our tea shop example to work for any product:
 
 ```javascript
 function calculateTotal(price, salesTaxRate) {
-   const totalAmount = price + (price * salesTaxRate);
-   console.log("The total is $" + totalAmount);
+  const totalAmount = price + price * salesTaxRate;
+  console.log('The total is $' + totalAmount);
 }
 ```
 
-A few things to note:
-* There’s nothing special about the words `price` or `salesTaxRate`. We’re using descriptive names to remember what information we’re providing our function. It’s up to you to choose parameter names that make sense for what you’re trying to do.
-* We can add multiple parameters separated by commas in the parentheses.
+A few important points to remember:
+
+- The words `price` and `salesTaxRate` are just descriptive placeholders for the data we will pass in. You can choose parameter names that make sense for your situation.
+- You can include **multiple parameters**, separated by commas, inside the parentheses.
 
 ---
 
 <h1 class="slide-header">From Parameters to Arguments</h1>
 
-When we invoke a function, we replace parameters with the data we want them to actually use. The data we provide when invoking a function is called an **argument**. 
+When we call a function, we provide the actual values we want the function to use. These values are called **arguments**.
 
-Here’s how we’d invoke a function with arguments:
+Arguments are the real data that replace the parameters when the function runs.
+
+Here’s how we would invoke our tea shop function with arguments:
 
 ```javascript
 function calculateTotal(price, salesTaxRate) {
-   const totalAmount = price + (price * salesTaxRate);
-   console.log("The total is $" + totalAmount);
+  const totalAmount = price + price * salesTaxRate;
+  console.log('The total is $' + totalAmount);
 }
 
-calculateTotal(4.50, .10);
+calculateTotal(3.5, 0.1);
 ```
 
-In this example, `4.50` corresponds to `price` and `.10` corresponds to `salesTaxRate`. **The order the arguments are written is important**, because it tells JavaScript which parameters they represent.
+In this example:
+
+- `3.5` is the argument passed in place of `price`.
+- `0.1` is the argument passed in place of `salesTaxRate`.
+
+**The order of the arguments matters.** The first argument will always correspond to the first parameter, the second argument to the second parameter, and so on.
 
 ---
 
-<h1 class="slide-header">Hello, You!</h1>
+<h1 class="slide-header">Hello, There!</h1>
 
-Now that we know about parameters, let’s make a friendly function that can greet anybody by their name. 
+Now that you know how parameters work, let’s create a function that can greet anyone by their name.
 
-* Define a function named `helloThere()`.
-* It should have one parameter for the `name` of the person we’re greeting.
-* It should log the message `Hello, _____!`, filling in the `name` in the blank.
+**1. Define a function named `helloThere()`.**  
+**2. Give the function one parameter called `name`.**  
+**3. Inside the function, use `console.log()` to print the message `Hello, _____!`, filling in the blank with the `name` provided.**  
+**4. After defining the function, call it with an argument of your choice to see the name printed in the console.**
+
+This is a great way to practice writing functions that use dynamic input!
 
 <iframe sandbox="allow-scripts allow-top-navigation allow-top-navigation-by-user-activation allow-forms allow-popups allow-same-origin"  height="400" style="width: 100%;" scrolling="no" title="Hello, There!" src="https://codepen.io/GAmarketing/embed/jORVeJN?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
    See the Pen <a href="https://codepen.io/GAmarketing/pen/jORVeJN">
@@ -221,41 +254,55 @@ Now that we know about parameters, let’s make a friendly function that can gre
 
 <h1 class="slide-header">What Comes Out of a Function</h1>
 
-Just as crucial as what goes into a function is what comes out of it. So far, we’ve been using `console.log` to view the results of our function. But what if we don’t want to log the results immediately?
+Understanding what comes **out** of a function is just as important as understanding what goes into it. Up until now, we’ve used `console.log()` to display results right away. But sometimes, instead of logging immediately, we want to **use the result later in our program**.
 
-The output of a function is called its **return** value, and we use the `return` keyword inside the function to define the output.
+The value a function sends out is called its **return value**, and we use the `return` keyword to define that output inside the function.
 
-Let’s refactor our `calculateTotal()` function so that the result is returned:
+Let’s refactor our `calculateTotal()` function so that it returns a value:
 
-```js
+```javascript
 function calculateTotal(price, salesTaxRate) {
-   return (price + (price * salesTaxRate));
+  return price + price * salesTaxRate;
 }
 ```
 
-Now, we can use the result of the function. We could create a new variable called `total` and use it to store the result of `calculateTotal()` so that we can refer to it elsewhere.
+Now, we can store the result and use it elsewhere. For example, we can create a variable called `total` to hold the returned value:
 
 ```javascript
-const total = calculateTotal(4.5, .10);
+const total = calculateTotal(3.5, 0.1);
 ```
+
+This allows us to use the result in other parts of our code whenever we need it.
 
 ---
 
 <h1 class="slide-header">Return vs. Console.log</h1>
 
-At this point, you might be wondering about the actual difference between `return` and `console.log`. They both give you output, right?
+By now, you might be wondering — what’s the difference between `return` and `console.log`? They both seem to show output, right?
 
-Think of a function like a vending machine. You feed in your money and choice of selection, and you expect a product to come out of it. A `console.log` is the equivalent of a message on the machine that tells you, “I got your request for M&M’s.” It’s a helpful message, but you sure can’t eat it! The machine has to `return` something to you — in this case, the bag of M&M’s — which is the output of whatever you told it to do.
+Here’s an easy way to think about it:  
+A function is like a vending machine. You put in money and make a selection, and you expect the machine to give you a product.
 
-Although most of our examples up to this point have used `console.log`, in a real application, those statements are mostly used to debug what’s going wrong. A mature, finished browser application should have no `console.log` statements at all, because (hopefully) all of the bugs are fixed.
+- **`console.log`** is like the message on the screen that says, _"You selected M&M’s!"_ It confirms that the machine got your request, but you can’t eat that message.
+- **`return`** is the actual product — the bag of M&M’s that comes out of the machine. It’s the result you can use.
 
-![](https://ga-instruction.s3.amazonaws.com/assets/tech/computer-science/intro-js/vending-machine.png)
+In real applications, `console.log` is mostly used for debugging — checking that things are working correctly. Once your code is complete, you’ll rely on `return` values to pass data around and avoid leaving `console.log` statements in your final code.
+
+<img src="./assets/vending-machine.png" alt="Vending Machine" style="width:600px;"/>
 
 ---
 
 <h1 class="slide-header">Your Programming Powers Have Multiplied</h1>
 
-Write a function named `multiply()` that accepts two parameters and returns the result of multiplying the given numbers.
+Let’s practice writing a function that calculates and returns a value.
+
+**1. Define a function named `multiply()`.**  
+**2. Give it two parameters, one for each number you want to multiply.**  
+**3. Inside the function, use the `return` keyword to return the result of multiplying the two numbers.**  
+**4. After defining the function, call it with two numbers and save the returned result to a variable called `result`.**  
+**5. Then, log that variable to the console to see the result.**
+
+This will help you practice writing functions that return values and using those values later in your code.
 
 <iframe sandbox="allow-scripts allow-top-navigation allow-top-navigation-by-user-activation allow-forms allow-popups allow-same-origin"  height="400" style="width: 100%;" scrolling="no" title="Your Powers Have Multiplied" src="https://codepen.io/GAmarketing/embed/poBNxYv?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
    See the Pen <a href="https://codepen.io/GAmarketing/pen/poBNxYv">
@@ -267,52 +314,59 @@ Write a function named `multiply()` that accepts two parameters and returns the 
 
 <h1 class="slide-header">Scope</h1>
 
-Now that we’re more familiar with the concept of code blocks, we can discuss the idea of **scope**. In JavaScript, where you declare a variable or function affects where it can be used by the program. Scope helps us specify if and how a program can use specific variables and functions.
+Now that you’re familiar with code blocks, it’s time to talk about **scope**. In JavaScript, **where** you declare a variable or function determines **where** in your program it can be used. Scope helps control which parts of the code can access certain variables and functions.
 
-The curly braces surrounding a code block — in a function or conditional statement — define a new scope, which will limit how you can access variables **outside** of the scope.
-* **Globally scoped** variables aren't declared inside of any code block, and are available anywhere in the program. 
-* **Locally scoped** variables are only available inside of the code block they're declared within. A `let i = 0` declaration inside of a for loop is a classic example– you won't be able to access that particular `i` variable outside of the for loop.
+The curly braces `{ }` around a function or conditional statement create a **new scope**, which can limit access to variables declared inside that block.
 
-Let’s look more closely at global and local scope.
+Here are the two main types of scope:
+
+- **Global scope**: Variables declared outside of any code block are available **anywhere** in the program.
+- **Local scope**: Variables declared inside a code block (like inside a function or loop) are only available **within that block**. For example, `let i = 0` inside a `for` loop can’t be used outside the loop.
+
+Let’s take a closer look at how global and local scope work in practice.
 
 ---
 
 <h1 class="slide-header">Global Scope</h1>
 
-A **globally scoped variable** is one to which the entire program has access. Most of the variables we’ve defined so far have been global in scope. They’ve been defined outside of a function or specific code block, which means all scripts and functions on a webpage can access them.
+A **global variable** is a variable that can be accessed **anywhere in the program**. Most of the variables you’ve seen so far have been globally scoped — they are declared **outside of any function or code block**, making them available to all parts of your code.
 
-In the code below, the `brother` variable is a **global variable** because it’s defined on its own, outside of a specific function:
+In the example below, the variable `brother` is global because it’s declared outside of any function:
 
 ```js
-const brother = "Phillip";
+const brother = 'Phillip';
 
 function sayHello() {
-   console.log("Hello " + brother);
+  console.log('Hello ' + brother);
 }
 
-sayHello();   // brother can be accessed here
+sayHello(); // The function can access the global variable 'brother'
 
-console.log(brother);   // and brother can be accessed here
+console.log(brother); // The global variable can also be accessed here
 ```
+
+Because `brother` is in the **global scope**, both the function and the rest of the program can use it.
 
 ---
 
 <h1 class="slide-header">Local Scope</h1>
 
-Conversely, a **locally scoped variable** is declared inside of a code block and can only be accessed by other members of the same code block. It cannot be referenced outside of that code block, which means it cannot be called or used outside of the braces in which it's contained.
+A **locally scoped variable** is declared **inside a code block** (such as a function or loop) and can only be accessed **within that block**. It cannot be used or referenced outside the curly braces where it was defined.
 
-In the code below, we can call `sayHello()` with no trouble, and the console log inside it will run. However, when we try to access the `brother` variable in the `console.log()`, we will get an error indicating that `brother` is not defined. This is because the `brother` variable is local to the `sayHello()` function:
+In the example below, the variable `brother` is local to the `sayHello()` function. The function can use `brother` without any issues, but trying to access `brother` outside the function will result in an error because it doesn’t exist in the global scope:
 
 ```js
 function sayHello() {
-   const brother = "Phillip";
-   console.log("Hello " + brother);
-};
+  const brother = 'Phillip';
+  console.log('Hello ' + brother);
+}
 
-sayHello();   // brother would be logged here...
+sayHello(); // This works and logs 'Hello Phillip'
 
-console.log(brother);   // but it can’t be accessed on its own here.
+console.log(brother); // This will cause an error — 'brother' is not defined here
 ```
+
+**Local scope** helps keep variables contained and prevents conflicts in larger programs.
 
 ---
 
@@ -321,10 +375,10 @@ console.log(brother);   // but it can’t be accessed on its own here.
 What will we get from the `console.log` below?
 
 ```js
-const user = "me"
+const user = 'me';
 
-if (user === "me") {
-   const permitted = true;
+if (user === 'me') {
+  const permitted = true;
 }
 
 console.log(permitted);
@@ -343,75 +397,87 @@ console.log(permitted);
 
 <h1 class="slide-header">The Arrow Function</h1>
 
-The oldest way to write a function is how we’ve already been doing it: by using the `function` keyword. 
+So far, we’ve written functions using the `function` keyword — this is the traditional way to define a function.
 
-In newer versions of JavaScript, there’s another syntax for defining functions called **arrow functions**.  Here’s the same function, written both with the `function` keyword and as an arrow function:
+In newer versions of JavaScript, you can also define functions using **arrow function syntax**, which provides a shorter and cleaner way to write functions.
+
+Here’s the same function written both ways-
+
+**Traditional function:**
 
 ```js
-// Older way:
 function calculateTotal(price, salesTaxRate) {
-   return (price + (price * salesTaxRate));
+  return price + price * salesTaxRate;
 }
-calculateTotal(4.5, .10);
-
-// Newer way:
-const calculateTotal = (price, salesTaxRate) => {
-   return (price + (price * salesTaxRate));
-}
-calculateTotal(4.5, .10);
+calculateTotal(4.5, 0.1);
 ```
 
-Things to note:
-* Only the first line of the function changes.
-* Instead of using `function` to define the function, we use `const`.
-* Then, we separate the parameters using a `=`, followed by the “arrow” symbol, `=>`.
-* There are some advanced differences between regular functions and arrow functions, but we don't need to get into those here. If you're curious, check out <a href="https://www.geeksforgeeks.org/difference-between-regular-functions-and-arrow-functions/" target="_blank" rel="noreferrer noopener">this article</a> that explains them.
+**Arrow function:**
+
+```js
+const calculateTotal = (price, salesTaxRate) => {
+  return price + price * salesTaxRate;
+};
+calculateTotal(4.5, 0.1);
+```
+
+**Key differences:**
+
+- Only the first line of the function definition changes.
+- With arrow functions, we use `const` to declare the function and assign it to a variable.
+- The parameters are followed by an equals sign `=` and the arrow symbol `=>`.
+
+There are more advanced differences between traditional and arrow functions, but for now, this syntax is all you need. If you're curious, you can read more in [this article](https://www.geeksforgeeks.org/difference-between-regular-functions-and-arrow-functions/).
 
 ---
 
-<h1 class="slide-header">Knowledge Check</h1>
+<h1 class="slide-header">Quick Review</h1>
 
-How could we rewrite the following function using the arrow function syntax?
+Let's look at another example. This function declaration:
 
 ```js
 function embraceChange() {
-  console.log("Now I'm an arrow function.");
+  console.log('I can change!');
 }
 embraceChange();
 ```
 
-<details>
-  <summary>Reveal Answer</summary>
-  Here’s how that function should look now. Because this function has no parameters, we’ll leave the `()` blank (however, we still need to include them).
+can be rewritten as this arrow function:
 
-  ```js
-  const embraceChange = () => {
-     console.log("Now I'm an arrow function.");
-  }
-  embraceChange();
-  ```
-</details>
+```js
+const embraceChange = () => {
+  console.log('I can change!');
+};
+embraceChange();
+```
 
 ---
 
 <h1 class="slide-header">Functions and Arrays</h1>
 
-The last few concepts we’ve learned are especially powerful in combination with each other. Let’s try writing a function named `printArray()` with the following guidelines:
+Now let's combine what you've learned about functions, arrays, and loops.
 
-* `printArray()` accepts an array as a parameter, which you could name `arr`.
-* `printArray()` uses a `for` loop to iterate over each element in order to log each element to the console.
+**1. Write a function named `printArray()`.**  
+**2. The function should accept one parameter — an array (you can name this parameter `arr`).**  
+**3. Inside the function, use a `for` loop to go through each element of the array.**  
+**4. For each element, log its value to the console.**
+
+This exercise will help you practice writing functions that work with arrays and use loops to handle multiple values.
 
 <iframe sandbox="allow-scripts allow-top-navigation allow-top-navigation-by-user-activation allow-forms allow-popups allow-same-origin"  height="400" style="width: 100%;" scrolling="no" title="With These Powers Combined" src="https://codepen.io/GAmarketing/embed/MWRbPxa?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
    See the Pen <a href="https://codepen.io/GAmarketing/pen/MWRbPxa">
    With These Powers Combined</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
    on <a href="https://codepen.io">CodePen</a>.
  </iframe>
+
 ---
 
 <h1 class="slide-header">Conclusion</h1>
 
-Functions are the key to creating re-usable, readable programs. Instead of a pile of lines of disorganized code, you end up with clearly named blocks that add up to bigger things.
+Functions are essential for writing **reusable, organized, and readable code**. Instead of having a long list of repeated lines, you can create **clearly named blocks of code** that work together to build larger, more complex programs.
 
-You're now ready to start practicing JS with code challenges on sites like <a href="https://www.codewars.com/" target="_blank" rel="noreferrer noopener">Code Wars</a> or <a href="https://leetcode.com/" target="_blank" rel="noreferrer noopener">LeetCode</a>, which typically take the form of "Write a function that does _________."
+Now that you understand how functions work, you’re ready to start practicing JavaScript by solving coding challenges. Sites like <a href="https://www.codewars.com/" target="_blank" rel="noreferrer noopener">CodeWars</a> and <a href="https://leetcode.com/" target="_blank" rel="noreferrer noopener">LeetCode</a> are great places to start. These challenges often ask you to **"Write a function that does \_\_\_\_."**
+
+Practicing on these platforms will help you strengthen your problem-solving skills and become more confident writing functions on your own.
 
 </textarea>
