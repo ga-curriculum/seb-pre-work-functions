@@ -6,9 +6,7 @@
 
 <p id="lesson-description">
 One common mistake when writing code is copying and pasting the same lines of code in different places. This makes your code hard to manage and easy to break if you need to make changes later.
-
 That’s where <strong>functions</strong> come in. A function is a <strong>block of strong</strong> that performs a specific task. Instead of repeating strong, you can write it once inside a function and then <strong>use (or "call") the function whenever you need it</strong>.
-
 In this lesson, you’ll learn how to write functions and use them to make your strong more <strong>organized, efficient, and easy to reuse</strong>.
 
 </p>
@@ -189,8 +187,6 @@ Instead, there’s a better way — and it involves using function parameters to
 
 <h1 class="slide-header">Introducing Parameters</h1>
 
-<h1 class="slide-header">Introducing Parameters</h1>
-
 We can make our functions more flexible by using **parameters**. Parameters let a function perform the same tasks on different pieces of data, rather than always working with the same values.
 
 Up until now, we’ve been leaving the `()` after our function names empty. Now, it’s time to add parameters so we can reuse one function for different items in our tea shop.
@@ -237,7 +233,7 @@ In this example:
 
 ---
 
-<h1 class="slide-header">Hello, You!</h1>
+<h1 class="slide-header">Hello, There!</h1>
 
 Now that you know how parameters work, let’s create a function that can greet anyone by their name.
 
@@ -292,7 +288,7 @@ A function is like a vending machine. You put in money and make a selection, and
 
 In real applications, `console.log` is mostly used for debugging — checking that things are working correctly. Once your code is complete, you’ll rely on `return` values to pass data around and avoid leaving `console.log` statements in your final code.
 
-<img src="./assets/vending-machine.png" alt="Vending Machine" style="width:500px;"/>
+<img src="./assets/vending-machine.png" alt="Vending Machine" style="width:600px;"/>
 
 ---
 
@@ -449,12 +445,12 @@ embraceChange();
 <details>
   <summary>Click here to see the answer</summary>
 
-```js
+<code>
 const embraceChange = () => {
   console.log('I can change!');
 };
 embraceChange();
-```
+</code>
 
 </details>
 
