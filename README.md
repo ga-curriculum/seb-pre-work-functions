@@ -41,7 +41,7 @@ Scope in JavaScript
 
 ---
 
-<h1 class="slide-header">Not Like This...</h1>
+<h1 class="slide-header">You Could Write Logic Like This...</h1>
 
 Imagine you’re building a video game where a character collects different items — food, coins, and tools. Each time an item is collected, you need to update their points and add the item to their inventory.
 
@@ -68,7 +68,7 @@ Using functions helps avoid this problem.
 
 ---
 
-<h1 class="slide-header">...Like This</h1>
+<h1 class="slide-header">...But This is Better</h1>
 
 Instead of repeating code, we can **wrap the logic in a function**:
 
