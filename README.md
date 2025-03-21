@@ -445,12 +445,13 @@ embraceChange();
 <details>
   <summary>Click here to see the answer</summary>
 
-<code>
-const embraceChange = () => {
-  console.log('I can change!');
-};
-embraceChange();
-</code>
+<code>const embraceChange = () => {</code>
+<code>  console.log('I can change!');</code>
+<code>};</code>
+
+
+<code>embraceChange();</code>
+
 
 </details>
 
