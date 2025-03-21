@@ -442,7 +442,7 @@ function embraceChange() {
 embraceChange();
 ```
 
-can be rewritten as this arrow function: 
+can be rewritten as this arrow function:
 
 ```js
 const embraceChange = () => {
